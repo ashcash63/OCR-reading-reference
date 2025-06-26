@@ -1,16 +1,9 @@
-
 import React, { useState } from 'react';
+import { useToast } from '@/hooks/use-toast';
 import SearchBar from '../components/SearchBar';
 import ResultsArea from '../components/ResultsArea';
 import VideoPlayerModal from '../components/VideoPlayerModal';
-
-interface SearchResult {
-  camera_id: string;
-  timestamp: string;
-  video_path: string;
-  segment_start_time: number;
-  segment_end_time: number;
-}
+import { searchText, SearchResult, getVideoSegmentUrl } from '../lib/api';
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -19,45 +12,38 @@ const Index = () => {
   const [hasSearched, setHasSearched] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<SearchResult | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { toast } = useToast();
 
   const handleSearch = async () => {
-    if (!searchQuery.trim()) return;
+    if (!searchQuery.trim()) {
+      toast({
+        title: "Error",
+        description: "Please enter a search term",
+        variant: "destructive",
+      });
+      return;
+    }
 
     setIsLoading(true);
     setHasSearched(true);
 
     try {
-      console.log('Searching for:', searchQuery);
-      const response = await fetch(`/search?keyword=${encodeURIComponent(searchQuery)}`);
+      const searchResults = await searchText(searchQuery);
+      setResults(searchResults);
       
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Search results:', data);
-        setResults(data);
-      } else {
-        console.error('Search failed:', response.status, response.statusText);
-        setResults([]);
+      if (searchResults.length === 0) {
+        toast({
+          title: "No results found",
+          description: "Try a different search term",
+        });
       }
     } catch (error) {
       console.error('Search error:', error);
-      // For demo purposes, let's add some mock data when the API isn't available
-      const mockResults: SearchResult[] = [
-        {
-          camera_id: "Camera_001",
-          timestamp: "00:01:25",
-          video_path: "vid/warehouse_feed_1.mp4",
-          segment_start_time: 83,
-          segment_end_time: 93
-        },
-        {
-          camera_id: "Camera_003",
-          timestamp: "00:03:42",
-          video_path: "vid/warehouse_feed_3.mp4",
-          segment_start_time: 220,
-          segment_end_time: 235
-        }
-      ];
-      setResults(mockResults);
+      toast({
+        title: "Error",
+        description: "Failed to search. Please try again.",
+        variant: "destructive",
+      });
     } finally {
       setIsLoading(false);
     }
@@ -74,7 +60,11 @@ const Index = () => {
   };
 
   const getVideoUrl = (result: SearchResult) => {
-    return `/video_segment?video_path=${encodeURIComponent(result.video_path)}&start_time=${result.segment_start_time}&end_time=${result.segment_end_time}`;
+    return getVideoSegmentUrl(
+      result.source_video, 
+      Math.max(0, result.timestamp - 5), 
+      result.timestamp + 5
+    );
   };
 
   return (
@@ -118,12 +108,14 @@ const Index = () => {
         </div>
 
         {/* Video Player Modal */}
-        <VideoPlayerModal
-          isOpen={isModalOpen}
-          onClose={handleCloseModal}
-          videoUrl={selectedVideo ? getVideoUrl(selectedVideo) : ''}
-          result={selectedVideo}
-        />
+        {selectedVideo && (
+          <VideoPlayerModal
+            isOpen={isModalOpen}
+            onClose={handleCloseModal}
+            videoUrl={getVideoUrl(selectedVideo)}
+            result={selectedVideo}
+          />
+        )}
       </div>
     </div>
   );

@@ -1,0 +1,207 @@
+[
+  {
+    "text": "MSI-123",
+    "timestamp": 5.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "SHIPMENT RECEIVED",
+    "timestamp": 5.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "PACKAGE-456",
+    "timestamp": 10.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "DELIVERED",
+    "timestamp": 10.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "MSI-789",
+    "timestamp": 15.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "IN TRANSIT",
+    "timestamp": 15.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "SAMPLE-456",
+    "timestamp": 20.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "ON HOLD",
+    "timestamp": 20.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "MSI-123",
+    "timestamp": 5.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "SHIPMENT RECEIVED",
+    "timestamp": 5.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "PACKAGE-456",
+    "timestamp": 10.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "DELIVERED",
+    "timestamp": 10.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "MSI-789",
+    "timestamp": 15.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "IN TRANSIT",
+    "timestamp": 15.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "SAMPLE-456",
+    "timestamp": 20.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "ON HOLD",
+    "timestamp": 20.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "MSI-123",
+    "timestamp": 5.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "SHIPMENT RECEIVED",
+    "timestamp": 5.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "PACKAGE-456",
+    "timestamp": 10.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "DELIVERED",
+    "timestamp": 10.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "MSI-789",
+    "timestamp": 15.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "IN TRANSIT",
+    "timestamp": 15.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "SAMPLE-456",
+    "timestamp": 20.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "MSI-123",
+    "timestamp": 5.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "SHIPMENT RECEIVED",
+    "timestamp": 5.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "PACKAGE-456",
+    "timestamp": 10.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "DELIVERED",
+    "timestamp": 10.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "MSI-789",
+    "timestamp": 15.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "IN TRANSIT",
+    "timestamp": 15.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "SAMPLE-456",
+    "timestamp": 20.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "ON HOLD",
+    "timestamp": 20.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "MSI-123",
+    "timestamp": 5.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "SHIPMENT RECEIVED",
+    "timestamp": 5.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  },
+  {
+    "text": "MSI-123",
+    "timestamp": 5.0,
+    "camera_id": "CAM_01",
+    "source_video": "OCR-Video.mp4"
+  }
+] }
+]
