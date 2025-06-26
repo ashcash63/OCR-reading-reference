@@ -5,12 +5,17 @@ import ResultsArea from '../components/ResultsArea';
 import VideoPlayerModal from '../components/VideoPlayerModal';
 import { searchText, SearchResult, getVideoSegmentUrl } from '../lib/api';
 
+interface EnrichedSearchResult extends SearchResult {
+  segment_start_time: number;
+  segment_end_time: number;
+}
+
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState<SearchResult[]>([]);
   const [hasSearched, setHasSearched] = useState(false);
-  const [selectedVideo, setSelectedVideo] = useState<SearchResult | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<EnrichedSearchResult | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { toast } = useToast();
 
@@ -50,7 +55,12 @@ const Index = () => {
   };
 
   const handlePlayVideo = (result: SearchResult) => {
-    setSelectedVideo(result);
+    const enrichedResult = {
+      ...result,
+      segment_start_time: Math.max(0, result.timestamp - 5),
+      segment_end_time: result.timestamp + 5,
+    };
+    setSelectedVideo(enrichedResult);
     setIsModalOpen(true);
   };
 
@@ -59,11 +69,11 @@ const Index = () => {
     setSelectedVideo(null);
   };
 
-  const getVideoUrl = (result: SearchResult) => {
+  const getVideoUrl = (result: EnrichedSearchResult) => {
     return getVideoSegmentUrl(
-      result.source_video, 
-      Math.max(0, result.timestamp - 5), 
-      result.timestamp + 5
+      result.source_video,
+      result.segment_start_time,
+      result.segment_end_time
     );
   };
 

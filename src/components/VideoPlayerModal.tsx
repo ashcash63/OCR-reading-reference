@@ -32,6 +32,11 @@ const VideoPlayerModal: React.FC<VideoPlayerModalProps> = ({
     ? getScreenshotUrl(result.screenshot_filename)
     : '';
     
+  const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
+    console.error('Video failed to load:', e);
+    setIsImageMode(true); // Fall back to image mode on error
+  };
+    
   const formatTime = (timestamp: number): string => {
     const minutes = Math.floor(timestamp / 60);
     const seconds = Math.floor(timestamp % 60);
@@ -107,36 +112,29 @@ const VideoPlayerModal: React.FC<VideoPlayerModalProps> = ({
                 </div>
               </>
             ) : (
-              /* Video Player - In a real app, this would use a proper video player */
+               /* Video Player - Now with a real video element */
               <>
-                <div className="w-full h-full flex items-center justify-center bg-black">
-                  {/* This is a placeholder. In a real implementation, you'd use a proper video component */}
-                  <p className="text-center text-gray-400 p-4">
-                    Video player would load here.<br/>
-                    Showing segment from {result?.segment_start_time}s to {result?.segment_end_time}s of {result?.source_video}
-                  </p>
-                </div>
+                <video
+                  key={videoUrl} // Use key to force re-render when URL changes
+                  className="w-full h-full object-contain bg-black"
+                  src={videoUrl}
+                  controls
+                  autoPlay
+                  onError={handleVideoError}
+                >
+                  Your browser does not support the video tag.
+                </video>
                 
-                {/* Video controls */}
+                {/* Simplified controls, as the video element has its own */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <button 
-                        className="rounded-full p-2 bg-white/10 hover:bg-white/20 transition-colors"
-                        onClick={() => setIsImageMode(true)}
-                      >
-                        <SkipBack size={16} />
-                      </button>
-                      <button 
-                        className="rounded-full p-3 bg-white/10 hover:bg-white/20 transition-colors"
-                        onClick={() => setIsPlaying(!isPlaying)}
-                      >
-                        {isPlaying ? <Pause size={16} /> : <Play size={16} />}
-                      </button>
-                    </div>
-                    <div className="text-xs text-gray-300 font-mono">
-                      {formatTime(result?.segment_start_time || 0)} / {formatTime(result?.segment_end_time || 10)}
-                    </div>
+                  <div className="flex items-center">
+                    <button 
+                      className="rounded-full p-2 bg-white/10 hover:bg-white/20 transition-colors"
+                      onClick={() => setIsImageMode(true)}
+                      title="Back to screenshot"
+                    >
+                      <SkipBack size={16} />
+                    </button>
                   </div>
                 </div>
               </>
