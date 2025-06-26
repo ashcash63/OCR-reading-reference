@@ -19,7 +19,7 @@ const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { toast } = useToast();
 
-  const handleSearch = async () => {
+  const handleSearch = async (filters?: { dateRange?: { start: string; end: string }, cameraId?: string }) => {
     if (!searchQuery.trim()) {
       toast({
         title: "Error",
@@ -33,7 +33,7 @@ const Index = () => {
     setHasSearched(true);
 
     try {
-      const searchResults = await searchText(searchQuery);
+      const searchResults = await searchText(searchQuery, filters);
       setResults(searchResults);
       
       if (searchResults.length === 0) {
