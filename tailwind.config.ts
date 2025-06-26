@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -121,7 +120,10 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'cyber-pulse': 'cyber-pulse 2s ease-in-out infinite',
 				'fade-in': 'fade-in 0.3s ease-out'
-			}
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
