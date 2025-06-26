@@ -14,9 +14,21 @@ export interface Video {
   camera_id: string;
 }
 
-export const searchText = async (query: string): Promise<SearchResult[]> => {
+export const searchText = async (
+  query: string,
+  filters?: { dateRange?: { start: string; end: string }, cameraId?: string }
+): Promise<SearchResult[]> => {
   try {
-    const response = await fetch(`${API_URL}/search?query=${encodeURIComponent(query)}`);
+    let url = `${API_URL}/search?query=${encodeURIComponent(query)}`;
+    if (filters) {
+      if (filters.dateRange && filters.dateRange.start && filters.dateRange.end) {
+        url += `&start_date=${encodeURIComponent(filters.dateRange.start)}&end_date=${encodeURIComponent(filters.dateRange.end)}`;
+      }
+      if (filters.cameraId) {
+        url += `&camera_id=${encodeURIComponent(filters.cameraId)}`;
+      }
+    }
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`HTTP error ${response.status}`);
     }
