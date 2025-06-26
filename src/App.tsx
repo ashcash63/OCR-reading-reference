@@ -166,8 +166,10 @@ function App() {
             <div className="homepage-bg" />
             <img src="/security-camera.png" alt="Security Camera" className="w-20 h-20 mb-4 z-10" />
             <h1 className="text-4xl font-bold text-primary mb-1 z-10">CyberEye</h1>
-            <h2 className="text-base text-muted-foreground mb-3 z-10">Video Forensic Search</h2>
-            <p className="text-sm text-muted-foreground mb-6 z-10 text-center max-w-xl mx-auto">
+            <h2 className="text-base text-muted-foreground mb-3 z-10 text-center max-w-xl mx-auto">
+              Video Forensic Search
+            </h2>
+            <p className="text-lg text-muted-foreground mb-6 z-10 text-center max-w-xl mx-auto">
               The AI-powered search engine that pinpoints critical moments and evidence in your surveillance footage.
             </p>
             <div className="w-full max-w-xl z-10">
