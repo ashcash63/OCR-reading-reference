@@ -18,7 +18,7 @@ function Header({ onHome, searchQuery, setSearchQuery, onSearch, isLoading }) {
       <div className="flex items-center gap-2">
         <img src="/security-camera.png" alt="Security Camera Logo" className="w-7 h-7" />
         <button className="text-lg font-bold text-primary" onClick={onHome}>
-          CyberEye
+          Deja View
         </button>
       </div>
       <div className="w-80 max-w-full">
@@ -165,7 +165,7 @@ function App() {
           <div className="min-h-screen flex flex-col items-center justify-start bg-background relative overflow-hidden pt-20">
             <div className="homepage-bg" />
             <img src="/security-camera.png" alt="Security Camera" className="w-20 h-20 mb-4 z-10" />
-            <h1 className="text-4xl font-bold text-primary mb-1 z-10">CyberEye</h1>
+            <h1 className="text-4xl font-bold text-primary mb-1 z-10">Deja View</h1>
             <h2 className="text-base text-muted-foreground mb-3 z-10 text-center max-w-xl mx-auto">
               Video Forensic Search
             </h2>
