@@ -1,5 +1,3 @@
-# MSI Video Tracker Hackathon
-
 This application processes videos to extract text using OCR, stores the results, and allows searching through the extracted text.
 
 ## Setup Instructions
