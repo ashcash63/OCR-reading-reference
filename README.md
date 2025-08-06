@@ -12,6 +12,7 @@ This application processes videos to extract text using OCR, stores the results,
 1. Create and activate a virtual environment:
    ```bash
    cd backend
+   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
    python -m venv venv
    
    # On Windows:
@@ -29,8 +30,11 @@ This application processes videos to extract text using OCR, stores the results,
    # Only install these if needed for video processing:
    # pip install opencv-python easyocr
    ```
+   pip install opencv-python
+   pip install easyocr
+   
 
-3. Start the backend server:
+4. Start the backend server:
    ```bash
    # Make sure you're in the backend directory with the virtual environment activated
    python app.py
