@@ -26,12 +26,10 @@ This application processes videos to extract text using OCR, stores the results,
    ```bash
    # Make sure your virtual environment is activated (you should see (venv) at the beginning of your command line)
    pip install flask flask-cors
-   
-   # Only install these if needed for video processing:
-   # pip install opencv-python easyocr
-   ```
    pip install opencv-python
    pip install easyocr
+   
+   ```
    
 
 4. Start the backend server:
